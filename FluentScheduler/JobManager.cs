@@ -50,14 +50,8 @@ public static class JobManager
     /// </summary>
     public static IJobFactory JobFactory
     {
-        private get
-        {
-            return (_jobFactory = _jobFactory ?? new JobFactory());
-        }
-        set
-        {
-            _jobFactory = value;
-        }
+        private get => (_jobFactory = _jobFactory ?? new JobFactory());
+        set => _jobFactory = value;
     }
 
     internal static Action GetJobAction<T>() where T : IJob
