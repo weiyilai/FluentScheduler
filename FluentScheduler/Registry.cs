@@ -19,7 +19,7 @@ public class Registry
     public Registry()
     {
         _allJobsConfiguredAsNonReentrant = false;
-        Schedules = new List<Schedule>();
+        Schedules = [];
     }
 
     /// <summary>

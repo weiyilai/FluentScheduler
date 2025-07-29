@@ -6,7 +6,7 @@ using System.Linq;
 
 internal class ScheduleCollection
 {
-    private List<Schedule> _schedules = new List<Schedule>();
+    private List<Schedule> _schedules = [];
 
     private object _lock = new object();
 

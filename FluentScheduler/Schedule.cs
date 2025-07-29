@@ -52,7 +52,7 @@ public class Schedule
     {
         Disabled = false;
         Jobs = actions.ToList();
-        AdditionalSchedules = new List<Schedule>();
+        AdditionalSchedules = [];
         PendingRunOnce = false;
         Reentrant = null;
     }
