@@ -113,9 +113,7 @@ public static class JobManager
 
     private static void DisposeIfNeeded(IJob job)
     {
-        var disposable = job as IDisposable;
-
-        if (disposable != null)
+        if (job is IDisposable disposable)
             disposable.Dispose();
     }
 
@@ -443,9 +441,7 @@ public static class JobManager
             {
                 if (JobException != null)
                 {
-                    var aggregate = e as AggregateException;
-
-                    if (aggregate != null && aggregate.InnerExceptions.Count == 1)
+                    if (e is AggregateException aggregate && aggregate.InnerExceptions.Count == 1)
                         e = aggregate.InnerExceptions.Single();
 
                     JobException(
