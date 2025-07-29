@@ -176,7 +176,7 @@ public static class JobManager
         {
             lock (_running)
             {
-                tasks = _running.Select(t => t.Item2).ToArray();
+                tasks = [.. _running.Select(t => t.Item2)];
             }
 
             Task.WaitAll(tasks);
@@ -206,7 +206,7 @@ public static class JobManager
         {
             lock (_running)
             {
-                return _running.Select(t => t.Item1).ToList();
+                return [.. _running.Select(t => t.Item1)];
             }
         }
     }
@@ -214,7 +214,7 @@ public static class JobManager
     /// <summary>
     /// Collection of all schedules.
     /// </summary>
-    public static IEnumerable<Schedule> AllSchedules => _schedules.All().ToList(); // returning a shallow copy
+    public static IEnumerable<Schedule> AllSchedules => [.. _schedules.All()]; // returning a shallow copy
 
     #endregion
 
