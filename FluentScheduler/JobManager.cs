@@ -18,9 +18,9 @@ public static class JobManager
 
     private static bool _useUtc = false;
 
-    private static Timer _timer = new Timer(state => ScheduleJobs(), null, Timeout.Infinite, Timeout.Infinite);
+    private static readonly Timer _timer = new Timer(state => ScheduleJobs(), null, Timeout.Infinite, Timeout.Infinite);
 
-    private static ScheduleCollection _schedules = new ScheduleCollection();
+    private static readonly ScheduleCollection _schedules = new ScheduleCollection();
 
     private static readonly ISet<Tuple<Schedule, Task>> _running = new HashSet<Tuple<Schedule, Task>>();
 

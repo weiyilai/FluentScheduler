@@ -6,9 +6,9 @@ using System.Linq;
 
 internal class ScheduleCollection
 {
-    private List<Schedule> _schedules = [];
+    private readonly List<Schedule> _schedules = [];
 
-    private object _lock = new object();
+    private readonly object _lock = new object();
 
     internal bool Any()
     {
