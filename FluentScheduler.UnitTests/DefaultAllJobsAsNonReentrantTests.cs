@@ -1,4 +1,6 @@
-﻿namespace FluentScheduler.UnitTests;
+﻿#pragma warning disable CA1707
+
+namespace FluentScheduler.UnitTests;
 
 using Mocks;
 using Xunit;
