@@ -158,7 +158,7 @@ public class Schedule
     /// <param name="time">The time to run.</param>
     public SpecificTimeUnit ToRunOnceAt(DateTime time)
     {
-        CalculateNextRun = x => (DelayRunFor > TimeSpan.Zero ? time.Add(DelayRunFor) : time);
+        CalculateNextRun = x => DelayRunFor > TimeSpan.Zero ? time.Add(DelayRunFor) : time;
         PendingRunOnce = true;
 
         return new SpecificTimeUnit(this);
