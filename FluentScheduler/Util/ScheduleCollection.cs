@@ -8,7 +8,7 @@ internal class ScheduleCollection
 {
     private readonly List<Schedule> _schedules = [];
 
-    private readonly object _lock = new object();
+    private readonly object _lock = new();
 
     internal bool Any()
     {
