@@ -18,9 +18,9 @@ public static class JobManager
 
     private static bool _useUtc = false;
 
-    private static readonly Timer _timer = new Timer(state => ScheduleJobs(), null, Timeout.Infinite, Timeout.Infinite);
+    private static readonly Timer _timer = new(state => ScheduleJobs(), null, Timeout.Infinite, Timeout.Infinite);
 
-    private static readonly ScheduleCollection _schedules = new ScheduleCollection();
+    private static readonly ScheduleCollection _schedules = new();
 
     private static readonly ISet<Tuple<Schedule, Task>> _running = new HashSet<Tuple<Schedule, Task>>();
 
@@ -413,16 +413,13 @@ public static class JobManager
         {
             var start = Now;
 
-            if (JobStart != null)
-            {
-                JobStart(
-                    new JobStartInfo
-                    {
-                        Name = schedule.Name,
-                        StartTime = start,
-                    }
-                );
-            }
+            JobStart?.Invoke(
+                new JobStartInfo
+                {
+                    Name = schedule.Name,
+                    StartTime = start,
+                }
+            );
 
             var stopwatch = new Stopwatch();
 
@@ -454,18 +451,15 @@ public static class JobManager
                     _running.Remove(tuple);
                 }
 
-                if (JobEnd != null)
-                {
-                    JobEnd(
-                        new JobEndInfo
-                        {
-                            Name = schedule.Name,
-                            StartTime = start,
-                            Duration = stopwatch.Elapsed,
-                            NextRun = schedule.NextRun,
-                        }
-                    );
-                }
+                JobEnd?.Invoke(
+                    new JobEndInfo
+                    {
+                        Name = schedule.Name,
+                        StartTime = start,
+                        Duration = stopwatch.Elapsed,
+                        NextRun = schedule.NextRun,
+                    }
+                );
             }
         }, TaskCreationOptions.PreferFairness);
 
