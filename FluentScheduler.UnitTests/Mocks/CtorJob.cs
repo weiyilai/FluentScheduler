@@ -1,11 +1,10 @@
-﻿namespace FluentScheduler.UnitTests.Mocks
+﻿namespace FluentScheduler.UnitTests.Mocks;
+
+public class CtorJob : IJob
 {
-    public class CtorJob : IJob
-    {
-        public CtorJob() => ++Calls;
+    public CtorJob() => ++Calls;
 
-        public static int Calls { get; private set; }
+    public static int Calls { get; private set; }
 
-        public void Execute() { }
-    }
+    public void Execute() { }
 }

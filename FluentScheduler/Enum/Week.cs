@@ -1,11 +1,10 @@
-﻿namespace FluentScheduler
+﻿namespace FluentScheduler;
+
+internal enum Week
 {
-    internal enum Week
-    {
-        First,
-        Second,
-        Third,
-        Fourth,
-        Last,
-    }
+    First,
+    Second,
+    Third,
+    Fourth,
+    Last,
 }

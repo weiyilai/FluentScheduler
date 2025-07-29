@@ -1,15 +1,14 @@
-﻿namespace FluentScheduler.UnitTests.Mocks
+﻿namespace FluentScheduler.UnitTests.Mocks;
+
+using System;
+
+public class DisposableJob : IJob, IDisposable
 {
-    using System;
+    public DisposableJob() => Disposed = false;
 
-    public class DisposableJob : IJob, IDisposable
-    {
-        public DisposableJob() => Disposed = false;
+    public static bool Disposed { get; private set; }
 
-        public static bool Disposed { get; private set; }
+    public void Execute() { }
 
-        public void Execute() { }
-
-        public void Dispose() => Disposed = true;
-    }
+    public void Dispose() => Disposed = true;
 }

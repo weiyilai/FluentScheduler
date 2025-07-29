@@ -1,12 +1,11 @@
-﻿namespace FluentScheduler.TestApplication
+﻿namespace FluentScheduler.TestApplication;
+
+using System;
+using static Serilog.Log;
+
+public class DisposableJob : IJob, IDisposable
 {
-    using System;
-    using static Serilog.Log;
+    public void Execute() => Logger.Information("Disposable: executing");
 
-    public class DisposableJob : IJob, IDisposable
-    {
-        public void Execute() => Logger.Information("Disposable: executing");
-
-        public void Dispose() => Logger.Information("Disposable: disposed");
-    }
+    public void Dispose() => Logger.Information("Disposable: disposed");
 }

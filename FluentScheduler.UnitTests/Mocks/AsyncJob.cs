@@ -1,15 +1,14 @@
-﻿using System.Threading.Tasks;
+﻿namespace FluentScheduler.UnitTests.Mocks;
 
-namespace FluentScheduler.UnitTests.Mocks
+using System.Threading.Tasks;
+
+public class AsyncJob : IAsyncJob
 {
-    public class AsyncJob : IAsyncJob
-    {
-        public static int Calls { get; private set; }
+    public static int Calls { get; private set; }
 
-        public async Task ExecuteAsync()
-        {
-            ++Calls;
-            await Task.CompletedTask;
-        }
+    public async Task ExecuteAsync()
+    {
+        ++Calls;
+        await Task.CompletedTask;
     }
 }

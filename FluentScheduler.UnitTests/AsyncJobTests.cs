@@ -1,24 +1,23 @@
-﻿namespace FluentScheduler.UnitTests
+﻿namespace FluentScheduler.UnitTests;
+
+using Mocks;
+using System.Threading.Tasks;
+using Xunit;
+using static JobManager;
+using static System.Threading.Tasks.Task;
+using static Xunit.Assert;
+
+public class AsyncJobTests
 {
-    using Mocks;
-    using System.Threading.Tasks;
-    using Xunit;
-    using static JobManager;
-    using static System.Threading.Tasks.Task;
-    using static Xunit.Assert;
-
-    public class AsyncJobTests
+    [Fact]
+    public async Task Should_Run_AsyncJob()
     {
-        [Fact]
-        public async Task Should_Run_AsyncJob()
-        {
-            AddJob<AsyncJob>(s => s.ToRunNow());
-            await Delay(200);
-            Equal(1, AsyncJob.Calls);
+        AddJob<AsyncJob>(s => s.ToRunNow());
+        await Delay(200);
+        Equal(1, AsyncJob.Calls);
 
-            AddJob<AsyncJob>(s => s.ToRunNow());
-            await Delay(200);
-            Equal(2, AsyncJob.Calls);
-        }
+        AddJob<AsyncJob>(s => s.ToRunNow());
+        await Delay(200);
+        Equal(2, AsyncJob.Calls);
     }
 }

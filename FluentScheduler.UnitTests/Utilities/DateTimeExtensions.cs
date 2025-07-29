@@ -1,10 +1,9 @@
-﻿namespace FluentScheduler.UnitTests.Utilities
-{
-    using System;
+﻿namespace FluentScheduler.UnitTests.Utilities;
 
-    public static class DateTimeExtensions
-    {
-        public static DateTime WithoutMilliseconds(this DateTime dateTime) =>
-            dateTime.AddTicks(-(dateTime.Ticks % TimeSpan.TicksPerSecond));
-    }
+using System;
+
+public static class DateTimeExtensions
+{
+    public static DateTime WithoutMilliseconds(this DateTime dateTime) =>
+        dateTime.AddTicks(-(dateTime.Ticks % TimeSpan.TicksPerSecond));
 }

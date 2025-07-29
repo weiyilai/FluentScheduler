@@ -1,14 +1,13 @@
-﻿namespace FluentScheduler
+﻿namespace FluentScheduler;
+
+/// <summary>
+/// Some work to be done.
+/// Make sure there's a parameterless constructor (avoid System.MissingMethodException).
+/// </summary>
+public interface IJob
 {
     /// <summary>
-    /// Some work to be done.
-    /// Make sure there's a parameterless constructor (avoid System.MissingMethodException).
+    /// Executes the job.
     /// </summary>
-    public interface IJob
-    {
-        /// <summary>
-        /// Executes the job.
-        /// </summary>
-        void Execute();
-    }
+    void Execute();
 }

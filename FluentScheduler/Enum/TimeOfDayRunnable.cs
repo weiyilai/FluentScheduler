@@ -1,9 +1,8 @@
-namespace FluentScheduler
+namespace FluentScheduler;
+
+internal enum TimeOfDayRunnable
 {
-    internal enum TimeOfDayRunnable
-    {
-        TooEarly,
-        CanRun,
-        TooLate,
-    }
+    TooEarly,
+    CanRun,
+    TooLate,
 }

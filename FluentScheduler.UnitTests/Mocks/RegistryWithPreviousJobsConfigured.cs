@@ -1,14 +1,13 @@
-﻿namespace FluentScheduler.UnitTests.Mocks
-{
-    using System;
+﻿namespace FluentScheduler.UnitTests.Mocks;
 
-    public class RegistryWithPreviousJobsConfigured : Registry
+using System;
+
+public class RegistryWithPreviousJobsConfigured : Registry
+{
+    public RegistryWithPreviousJobsConfigured()
     {
-        public RegistryWithPreviousJobsConfigured()
-        {
-            Schedule(() => Console.WriteLine("Hi"));
-            Schedule<StronglyTypedTestJob>();
-            NonReentrantAsDefault();
-        }
+        Schedule(() => Console.WriteLine("Hi"));
+        Schedule<StronglyTypedTestJob>();
+        NonReentrantAsDefault();
     }
 }
