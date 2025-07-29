@@ -1,5 +1,6 @@
-﻿namespace FluentScheduler;
+namespace FluentScheduler;
 
+using System.Diagnostics.CodeAnalysis;
 using System.Threading.Tasks;
 
 /// <summary>
@@ -16,6 +17,7 @@ public interface IAsyncJob : IJob
     /// <summary>
     /// Executes the job, synchronously.
     /// </summary>
+    [SuppressMessage("Design", "CA1033")]
     void IJob.Execute()
     {
         ExecuteAsync().Wait();

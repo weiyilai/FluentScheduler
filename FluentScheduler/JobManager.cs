@@ -3,6 +3,7 @@ namespace FluentScheduler;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -48,6 +49,7 @@ public static class JobManager
     /// <summary>
     /// Job factory used by the job manager.
     /// </summary>
+    [SuppressMessage("Design", "CA1044")]
     public static IJobFactory JobFactory
     {
         private get => _jobFactory ??= new JobFactory();
@@ -395,6 +397,7 @@ public static class JobManager
         }
     }
 
+    [SuppressMessage("Design", "CA1031")]
     internal static void RunJob(Schedule schedule)
     {
         if (schedule.Disabled)
