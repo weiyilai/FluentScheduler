@@ -1,7 +1,9 @@
 ﻿namespace FluentScheduler.UnitTests.Mocks;
 
 using System;
+using System.Diagnostics.CodeAnalysis;
 
+[SuppressMessage("Design", "CA1812")]
 internal class DisposableJob : IJob, IDisposable
 {
     public DisposableJob() => Disposed = false;

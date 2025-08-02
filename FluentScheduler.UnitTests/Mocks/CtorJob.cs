@@ -1,5 +1,8 @@
-﻿namespace FluentScheduler.UnitTests.Mocks;
+﻿using System.Diagnostics.CodeAnalysis;
 
+namespace FluentScheduler.UnitTests.Mocks;
+
+[SuppressMessage("Design", "CA1812")]
 internal class CtorJob : IJob
 {
     public CtorJob() => ++Calls;
