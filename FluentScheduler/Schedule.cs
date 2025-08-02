@@ -2,7 +2,6 @@ namespace FluentScheduler;
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 /// <summary>
 /// A job schedule.
@@ -42,7 +41,7 @@ public class Schedule
     /// Schedules a new job in the registry.
     /// </summary>
     /// <param name="action">Job to schedule.</param>
-    public Schedule(Action action) : this(new[] { action }) { }
+    public Schedule(Action action) : this([action]) { }
 
     /// <summary>
     /// Schedules a new job in the registry.
@@ -51,7 +50,7 @@ public class Schedule
     public Schedule(IEnumerable<Action> actions)
     {
         Disabled = false;
-        Jobs = actions.ToList();
+        Jobs = [.. actions];
         AdditionalSchedules = [];
         PendingRunOnce = false;
         Reentrant = null;
